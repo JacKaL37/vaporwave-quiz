@@ -6,7 +6,7 @@ import QuizPanel from './QuizPanel'
 import { lessons } from './quizData'
 import ReactMarkdown from 'react-markdown'
 
-const MainLayout: React.FC = () => {
+export const MainLayout: React.FC = () => {
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0)
   const [isQuizOpen, setIsQuizOpen] = useState(false)
   const [highScores, setHighScores] = useState<number[]>(new Array(lessons.length).fill(0))
