@@ -81,7 +81,7 @@ export const MainLayout: React.FC = () => {
       </header>
       <main className="relative">
         <div className="z-50 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <ReactMarkdown 
+          <ReactMarkdown className="wd-"
             components={{
               h1: ({node, ...props}) => <h1 className="text-4xl font-extrabold text-cyan-100 mb-4 shadow-neon-cyan" {...props} />,
               h2: ({node, ...props}) => <h2 className="text-3xl font-bold text-fuchsia-100 mb-3 shadow-neon-pink" {...props} />,
@@ -94,9 +94,9 @@ export const MainLayout: React.FC = () => {
             {currentLesson.lessonContent}
           </ReactMarkdown>
         </div>
-        <div className="z-10 absolute top-1/2 left-1/4 w-64 h-64 bg-fuchsia-500 rounded-full mix-blend-overlay filter blur-xl opacity-70 animate-blob pointer-events-none"></div>
-        <div className="z-10 absolute top-1/3 right-1/4 w-64 h-64 bg-cyan-500 rounded-full mix-blend-overlay filter blur-xl opacity-70 animate-blob animation-delay-2000 pointer-events-none"></div>
-        <div className="z-10 absolute bottom-1/2 left-1/2 w-64 h-64 bg-indigo-500 rounded-full mix-blend-overlay filter blur-xl opacity-70 animate-blob animation-delay-4000 pointer-events-none"></div>
+        <div className="z-10 absolute top-1/2 left-1/4 w-64 h-64 bg-fuchsia-500 rounded-full mix-blend-overlay filter blur-xl opacity-50 animate-blob pointer-events-none"></div>
+        <div className="z-10 absolute top-1/3 right-1/4 w-64 h-64 bg-cyan-500 rounded-full mix-blend-overlay filter blur-xl opacity-50 animate-blob animation-delay-2000 pointer-events-none"></div>
+        <div className="z-10 absolute bottom-1/2 left-1/2 w-64 h-64 bg-indigo-500 rounded-full mix-blend-overlay filter blur-xl opacity-50 animate-blob animation-delay-4000 pointer-events-none"></div>
       </main>
       {currentLesson.lessonQuiz && (
         <QuizPanel 

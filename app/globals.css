@@ -76,15 +76,15 @@
 }
 
 .shadow-neon-cyan {
-  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff;
+  text-shadow: 0 0 5px #00ffff80, 0 0 10px #00ffff80, 0 0 15px #00ffff80, 0 0 20px #00ffff80;
 }
 
 .shadow-neon-pink {
-  text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff;
+  text-shadow: 0 0 5px #ff00ff80, 0 0 10px #ff00ff80, 0 0 15px #ff00ff80, 0 0 20px #ff00ff80;
 }
 
 .shadow-neon-indigo {
-  text-shadow: 0 0 5px #4b0082, 0 0 10px #4b0082, 0 0 15px #4b0082, 0 0 20px #4b0082;
+  text-shadow: 0 0 5px #4b008280, 0 0 10px #4b008280, 0 0 15px #4b008280, 0 0 20px #4b008280;
 }
 
 @keyframes blob {
