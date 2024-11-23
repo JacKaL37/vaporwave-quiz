@@ -1,11 +1,11 @@
 export interface QuizQuestion {
-  question: string;
-  choices: string[];
-  correctAnswer: number;
+  question: string
+  choices: string[]
+  correctAnswer: number
   feedback: {
-    correct: string;
-    incorrect: string[];
-  };
+    correct: string
+    incorrect: string[]
+  }
 }
 
 export interface Lesson {
