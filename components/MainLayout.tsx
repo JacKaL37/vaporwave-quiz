@@ -14,9 +14,16 @@ export const MainLayout: React.FC = () => {
   useEffect(() => {
     const storedHighScores = localStorage.getItem('lessonHighScores')
     if (storedHighScores) {
-      setHighScores(JSON.parse(storedHighScores))
+      const parsedHighScores = JSON.parse(storedHighScores)
+      const updatedHighScores = new Array(lessons.length).fill(0)
+      parsedHighScores.forEach((score: number, index: number) => {
+        if (index < lessons.length) {
+          updatedHighScores[index] = score
+        }
+      })
+      setHighScores(updatedHighScores)
     }
-  }, [])
+  }, [lessons.length])
 
   const currentLesson = lessons[currentLessonIndex]
 
@@ -39,6 +46,10 @@ export const MainLayout: React.FC = () => {
         alert("Please complete the quiz with full marks to proceed to the next lesson.")
       }
     }
+  }
+
+  const handleNextLesson = () => {
+    navigateLesson('next')
   }
 
   return (
@@ -81,7 +92,7 @@ export const MainLayout: React.FC = () => {
       </header>
       <main className="relative">
         <div className="z-50 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <ReactMarkdown className="wd-"
+          <ReactMarkdown className="max-w-[600px] min-w-[300px] ml-5"
             components={{
               h1: ({node, ...props}) => <h1 className="text-4xl font-extrabold text-cyan-100 mb-4 shadow-neon-cyan" {...props} />,
               h2: ({node, ...props}) => <h2 className="text-3xl font-bold text-fuchsia-100 mb-3 shadow-neon-pink" {...props} />,
@@ -104,6 +115,7 @@ export const MainLayout: React.FC = () => {
           onClose={() => setIsQuizOpen(false)} 
           questions={currentLesson.lessonQuiz.questions}
           updateHighScore={updateHighScore}
+          onNextLesson={handleNextLesson} // Pass the new prop
         />
       )}
     </div>

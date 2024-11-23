@@ -14,9 +14,10 @@ interface QuizPanelProps {
   onClose: () => void
   questions: QuizQuestion[]
   updateHighScore: (score: number) => void
+  onNextLesson: () => void // New prop
 }
 
-const QuizPanel: React.FC<QuizPanelProps> = ({ isOpen, onClose, questions, updateHighScore }) => {
+const QuizPanel: React.FC<QuizPanelProps> = ({ isOpen, onClose, questions, updateHighScore, onNextLesson }) => {
   const [currentQuestions, setCurrentQuestions] = useState<QuizQuestion[]>([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
@@ -107,12 +108,21 @@ const QuizPanel: React.FC<QuizPanelProps> = ({ isOpen, onClose, questions, updat
               <CardContent>
                 <p className="text-4xl font-bold text-yellow-300">{score} / {currentQuestions.length}</p>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="flex justify-between">
                 <Button 
                   onClick={restartQuiz}
                   className="bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-full transform hover:scale-105 transition duration-300 ease-in-out"
                 >
                   Reboot Quiz
+                </Button>
+                <Button 
+                  onClick={() => {
+                    onClose()
+                    onNextLesson()
+                  }}
+                  className="bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white font-bold py-2 px-4 rounded-full transform hover:scale-105 transition duration-300 ease-in-out"
+                >
+                  Next Lesson
                 </Button>
               </CardFooter>
             </Card>
